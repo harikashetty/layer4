@@ -1,6 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
+import confetti from "canvas-confetti";
 
 function App() {
+  useEffect(() => {
+    confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+
+    const timer = setTimeout(() => {
+      window.location.href = "https://surprise123-iota.vercel.app/";
+    }, 3000); // auto redirect after 3 seconds
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div style={{
       backgroundColor: "#06131b",
@@ -14,24 +24,16 @@ function App() {
       textAlign: "center",
       padding: "20px"
     }}>
-      <h1 style={{fontSize: "2.2rem"}}>🌟 Surprise Layer 4 🌟</h1>
-      <p style={{maxWidth: 600}}>
-        This is the last layer — press the button and get the full birthday surprise!
+      <h1 style={{ fontSize: "2.2rem", opacity: 0, animation: "fadeIn 1s forwards" }}>🌟 Surprise Layer 4 🌟</h1>
+      <p style={{ maxWidth: 600, marginTop: "15px", opacity: 0, animation: "fadeIn 1s forwards 0.5s" }}>
+        Final layer — your birthday surprise is coming!
       </p>
-      <a
-        href="https://surprise123-iota.vercel.app/"
-        style={{
-          backgroundColor: "#7ecbff",
-          color: "#012",
-          padding: "12px 22px",
-          borderRadius: "12px",
-          textDecoration: "none",
-          fontSize: "18px",
-          marginTop: "18px"
-        }}
-      >
-        Reveal the Birthday Site 🎉
-      </a>
+
+      <style>{`
+        @keyframes fadeIn {
+          to { opacity: 1; }
+        }
+      `}</style>
     </div>
   );
 }
