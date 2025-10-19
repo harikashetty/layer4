@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import confetti from "canvas-confetti";
-
+import "./App.css";
 function App() {
   useEffect(() => {
     confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
