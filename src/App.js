@@ -21,26 +21,30 @@ function App() {
       cancelButtonColor: "#555",
       backdrop: `
         rgba(0,0,0,0.6)
-        url("https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif")
+        url("https://media.giphy.com/media/l3q2LH45XElELRzRm/giphy.gif")
         center top
         no-repeat
       `,
     }).then((result) => {
       if (result.isConfirmed) {
-        // Any answer is accepted
         Swal.fire({
           title: "🎊 Yay! 🎊",
-          text: "Final surprise unlocked!",
+          text: "Final surprise unlocked! 🎂",
           icon: "success",
           background: "#06131b",
           color: "#fff",
           confirmButtonColor: "#ff6b95",
           confirmButtonText: "Celebrate 🎉",
+          backdrop: `
+            rgba(0,0,0,0.6)
+            url("https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif")
+            center top
+            no-repeat
+          `,
         }).then(() => {
-          // Show confetti
-          confetti({ particleCount: 150, spread: 90, origin: { y: 0.6 } });
+          confetti({ particleCount: 200, spread: 100, origin: { y: 0.6 } });
 
-          // Redirect after 3 seconds
+          // ✅ Redirect to final page
           setTimeout(() => {
             window.location.href = "https://surprise123-iota.vercel.app/";
           }, 3000);
@@ -66,11 +70,10 @@ function App() {
     >
       <h1 style={{ fontSize: "2.2rem" }}>🌟 Surprise Layer 4 🌟</h1>
       <p style={{ maxWidth: 600, marginTop: "15px" }}>
-        Final layer — your birthday surprise is coming!
+        Final layer — your funny birthday surprise is here! 🎂💖
       </p>
 
-      <a
-        href="https://surprise123-iota.vercel.app/"
+      <button
         onClick={handleNextLayer}
         style={{
           backgroundColor: "#ff6b95",
@@ -86,8 +89,9 @@ function App() {
         }}
       >
         Open Surprise 🎁
-      </a>
+      </button>
     </div>
   );
 }
+
 export default App;
